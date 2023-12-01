@@ -9,7 +9,7 @@ require("dotenv").config();
 
 app.use(cors({
 
-        origin: ["http://localhost:3000"],
+        origin: ["https://chat-vibe-front-end.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true,
    
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoute);
 
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect("mongodb+srv://asim119913:AsimS119913@chatapp.jbwoqag.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() =>{
@@ -30,13 +30,13 @@ mongoose.connect(process.env.MONGO_URL, {
 
 // connectDB();
 
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server started on port ${process.env.PORT}`);
+const server = app.listen( () => {
+  console.log("Server started on port 5000");
 });
 
 const io = socket(server,{
     cors:{
-        origin: "http://localhost:3000",
+        origin: "https://chat-vibe-front-end.vercel.app/",
         credentials: true,
     },
 });
