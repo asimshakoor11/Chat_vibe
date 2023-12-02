@@ -35,7 +35,6 @@ function Register() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("regiterfront");
     if (handleValidation()) {
       console.log("in validation", registerRoute);
       const { password, username, email } = values;
