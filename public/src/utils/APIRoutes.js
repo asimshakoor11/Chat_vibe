@@ -1,4 +1,4 @@
-export const host = "https://chat-vibe-api11.vercel.app/";
+export const host = "https://chat-vibe-server.vercel.app/";
 
  export const registerRoute = `${host}/api/auth/register`;
  export const loginRoute = `${host}/api/auth/login`;
