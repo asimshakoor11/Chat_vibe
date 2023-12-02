@@ -6,6 +6,7 @@ const messageRoute = require("./routes/messagesRoute")
 const app = express();
 const socket = require("socket.io");
 const port = 5000;
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
