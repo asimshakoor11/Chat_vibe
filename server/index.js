@@ -8,7 +8,13 @@ const socket = require("socket.io");
 const port = 5000;
 require("dotenv").config();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://chat-vibe-sigma.vercel.app/"],
+        method: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json());
 
 app.use("/api/auth", userRoutes);
