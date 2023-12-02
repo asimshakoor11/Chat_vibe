@@ -30,7 +30,7 @@ const server = app.listen(port, () => {
 
 const io = socket(server,{
     cors:{
-        origin: "https://chat-vibe-front-end.vercel.app/",
+        origin: "https://chat-vibe-sigma.vercel.app/",
         credentials: true,
     },
 });
