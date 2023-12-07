@@ -45,6 +45,7 @@ const server = app.listen(port, () => {
 const io = socket(server,{
     cors:{
         origin: "https://chat-vibe-sigma.vercel.app",
+        method: ["POST", "GET"],
         credentials: true,
     },
 });
