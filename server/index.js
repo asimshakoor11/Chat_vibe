@@ -42,15 +42,15 @@ const server = app.listen(port, () => {
         console.log(`Server started on port ${port}`);
 });
 
-const socket = io("ws://chat-vibe-sigma.vercel.app", {
-  transports: ["websocket"]
-});
-
 const io = socket(server,{
     cors:{
         origin: "https://chat-vibe-sigma.vercel.app",
         credentials: true,
     },
+});
+
+const socket = io("ws://chat-vibe-sigma.vercel.app", {
+  transports: ["websocket"]
 });
 
 global.onlineUsers = new Map();
