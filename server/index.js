@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes")
 const messageRoute = require("./routes/messagesRoute")
 const app = express();
-const socket = require("socket.io");
+// const socket = require("socket.io");
 const port = 5000;
 require("dotenv").config();
 
@@ -42,19 +42,20 @@ const server = app.listen(port, () => {
         console.log(`Server started on port ${port}`);
 });
 
-const socket1 = io("ws://chat-vibe-sigma.vercel.app", {
+const socket = io("ws://chat-vibe-sigma.vercel.app", {
   transports: ["websocket"]
 });
-// const io = socket(server,{
-//     cors:{
-//         origin: "https://chat-vibe-sigma.vercel.app",
-//         credentials: true,
-//     },
-// });
+
+const io = socket(server,{
+    cors:{
+        origin: "https://chat-vibe-sigma.vercel.app",
+        credentials: true,
+    },
+});
 
 global.onlineUsers = new Map();
 
-socket1.on("connection", (socket) => {
+io.on("connection", (socket) => {
     global.chatSocket = socket;
     socket.on("add-user", (userId) => {
         onlineUsers.set(userId, socket.id);
