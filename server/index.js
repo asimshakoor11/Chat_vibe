@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes")
 const messageRoute = require("./routes/messagesRoute")
 const app = express();
-// const socket = require("socket.io");
+const socket = require("socket.io");
 const port = 5000;
 require("dotenv").config();
 
@@ -49,9 +49,9 @@ const io = socket(server,{
     },
 });
 
-const socket = io("ws://chat-vibe-sigma.vercel.app", {
-  transports: ["websocket"]
-});
+// const socket = io("ws://chat-vibe-sigma.vercel.app", {
+//   transports: ["websocket"]
+// });
 
 global.onlineUsers = new Map();
 
