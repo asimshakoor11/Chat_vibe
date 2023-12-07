@@ -4,13 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes")
 const messageRoute = require("./routes/messagesRoute")
 const app = express();
-const socket = require("socket.io") (https, {
-  cors: {
-    origin: 'https://chat-vibe-sigma.vercel.app',
-    // method: ["POST", "GET"],
-    // credentials: true
-}
-});
+const socket = require("socket.io");
 const port = 5000;
 require("dotenv").config();
 
